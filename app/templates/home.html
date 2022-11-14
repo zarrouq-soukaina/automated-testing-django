@@ -79,4 +79,31 @@
         <script src= "{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
+
+{% else %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {% include 'head.html' %}
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        {% include 'navbar.html' %} 
+        
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-lg-5">
+                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                    <div class="m-4 m-lg-5">
+                        <h1 class="display-5 fw-bold">gestion des classes</h1>
+                        <p class="fs-4">welcome, click here to log in: </p>
+                       <a href="accounts/login"    class="btn btn-warning" >Log in <span class="glyphicon glyphicon-send"></span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+</body>
+</html>
 {% endif %}

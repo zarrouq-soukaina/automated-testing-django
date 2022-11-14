@@ -30,14 +30,14 @@
 <!-- Form Name -->
 <legend>Add student to the course:</legend>
 <div class="form-group">
-  <label class="col-md-4 control-label"><h4> list of students:</h4></label>  
+  <label class="col-md-4 control-label"><h4> list of students [choose one or many students]:</h4></label>  
   <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
     {% for student in students.all %}
     <label  for="ts1" class="col-md-4 control-label">{{student}}</label>
-    <input type="checkbox" name="students" value="{{student.pk }}" required/>
+    <input type="checkbox" name="students" value="{{student.pk }}" />
   {% endfor %}
   
 </div>

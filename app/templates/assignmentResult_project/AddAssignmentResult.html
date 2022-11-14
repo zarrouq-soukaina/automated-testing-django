@@ -51,7 +51,7 @@
     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   {% for assignment in assignments.all %}
   <label  for="ts1" class="col-md-4 control-label">{{assignment}}</label>
-  <input type="radio" name="assignment" value="{{assignment.pk }}" required />
+  <input type="radio" name="assignment" value="{{assignment.pk }}"  />
 {% endfor %}
 </div>
 </div>
@@ -63,7 +63,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="grade" placeholder="grade" class="form-control"  type="number" step="0.01" required>
+  <input name="grade" placeholder="grade" class="form-control"  type="number" step="0.01">
     </div>
   </div>
 </div>
