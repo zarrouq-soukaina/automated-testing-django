@@ -1,3 +1,4 @@
+{% load tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,13 +46,13 @@
 				<tbody>
 					{% for student in students %}
 					<tr>
-						<td>
+						<td>,
 							
 						</td>
 						<td>{{student.first_name}}</td>
 						<td>{{student.last_name}}</td>
 						<td>{{student.town}}</td>
-						<td>{{student.energy}}</td>
+						<td>{{student.energy|round:2 }}</td>
 						<td> 
 				
 							<a href="#deleteModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>

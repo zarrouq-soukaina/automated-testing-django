@@ -6,6 +6,9 @@ from statistics import mean, median, stdev
 from django.contrib import messages
 from.filters import *
 from django.db.models import Q
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 # Create your views here.
 
@@ -347,13 +350,22 @@ class StatisticsCourse(TemplateView):
             min_grades='no data'
             median_grades='no data'
             stdev_grades= 'no data'
-        else:
+
+        elif len(grades)>1 :
             number_student= students.count()
             mean_grades= round(mean(grades),1)
             max_grades=round(max(grades),1)
             min_grades=round(min(grades),1)
             median_grades=round(median(grades),1)
             stdev_grades=round(stdev(grades),1)
+        else :
+            number_student= students.count()
+            mean_grades= round(grades[0],1)
+            max_grades=round(grades[0],1)
+            min_grades=round(grades[0],1)
+            median_grades=round(grades[0],1)
+            stdev_grades=round(grades[0],1)
+
 
         
         return render(request, self.template_name,{'course':course,'number_student':number_student, 'mean_grades':mean_grades, 'max_grades':  max_grades,'min_grades':min_grades,'median_grades':median_grades,'stdev_grades':stdev_grades})
