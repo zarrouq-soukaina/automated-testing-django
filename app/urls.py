@@ -8,7 +8,7 @@ from .views import RetreiveStudents,AddStudent,RetreiveCourses,AddCourse,Retreiv
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("logout", LogoutView.as_view(next_page=""), name='logout'),
+    path("logout", LogoutView.as_view(next_page="home"), name='logout'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 
     path('AddStudent', AddStudent.as_view(), name='AddStudent'),
