@@ -1,12 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
+
 from django.contrib.auth.views import LogoutView
 from django.views.generic.base import TemplateView
+
 from .views import RetreiveStudents,AddStudent,RetreiveCourses,AddCourse,RetreiveAssignments,RetreiveAssignmentResults,addStudentCourse,studentsCourse,AddAssignment,StudentGrades,AddAssignmentResult,StatisticsCourse,AssignStudent,SleepStudent,AssignStudentCourse,StudentCourses,deleteStudent,RetreiveCoursesFilter,deleteCourse,deleteAssignment,deleteAssignmentResult,RetreiveAssignmentsFilter,RetreiveAssignmentsResultsFilter, deleteStudentCourse,updateStudent,updateAssignment,updateAssignmentResult
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
-    path("logout", LogoutView.as_view(), name='logout'),
+    path("logout", LogoutView.as_view(next_page=""), name='logout'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 
     path('AddStudent', AddStudent.as_view(), name='AddStudent'),
