@@ -1,0 +1,95 @@
+
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>school managment</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+{% include 'head_crud.html' %} 
+</head>
+<body>
+	{% include 'navbar.html' %} 
+
+<div class="container">
+
+    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+        {% csrf_token %}
+    
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Assignment result</legend>
+
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label"><h4> list of students:</h4></label>  
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+  {% for student in students.all %}
+  <label  for="ts1" class="col-md-4 control-label">{{student}}</label>
+  <input type="radio" name="student" value="{{student.pk}}" required />
+{% endfor %}
+</div>
+</div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"><h4> list of assignments :</h4></label>  
+  <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  {% for assignment in assignments.all %}
+  <label  for="ts1" class="col-md-4 control-label">{{assignment}}</label>
+  <input type="radio" name="assignment" value="{{assignment.pk }}" required />
+{% endfor %}
+</div>
+</div>
+</div>
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" > <h4>Grade</h4></label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="grade" placeholder="grade" class="form-control"  type="number" step="0.01" required>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Text input-->
+ 
+
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+    </div><!-- /.container -->
+
+    {% endif %}

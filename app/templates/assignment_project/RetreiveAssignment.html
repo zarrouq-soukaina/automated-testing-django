@@ -1,0 +1,161 @@
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>school managment</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+{% include 'head_crud.html' %} 
+</head>
+<body>
+	{% include 'navbar.html' %} 
+<div class="container-xl">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h2>Manage <b>Assignment</b></h2>
+						{% if messages %}
+						<ul class="messages">
+							{% for message in messages %}
+							<li{% if message.tags %} class="{{ message.tags }}"{% endif %}> <small><h3 class="text-warning">{{ message }}</h3></small></li>
+							
+							{% endfor %}
+						</ul>
+						{% endif %}
+					</div>
+					<div class="col-sm-6">
+						<a href="{% url 'AddAssignment' %}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New Assignment</span></a>
+						<form class="well form-horizontal" action="{% url 'RetreiveAssignmentsFilter' %} " method="post"  id="contact_form">
+							{% csrf_token %}
+						
+				
+					<!-- Text input-->
+					
+					<div class="form-group">
+					  <label class="col-md-4 control-label"></label>  
+					  <div class="col-md-4 inputGroupContainer">
+					  <div class="input-group">
+					  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					  <input  name="key" placeholder="key" class="form-control"  type="text">
+					  
+						<button type="submit" class="btn btn-warning" >Search<span class="glyphicon glyphicon-send"></span></button>
+					
+						</div>
+					  </div>
+					</div>	
+				</form>
+			</div>		
+					</div>
+				</div>
+			</div>
+			
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							<span class="custom-checkbox">
+								
+							</span>
+						</th>
+						<th>name</th>
+						<th>difficulty</th>
+						
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for assignment in assignments %}
+					<tr>
+						<td>
+							
+						</td>
+						<td>{{assignment.name}}</td>
+						<td>{{assignment.difficulty}}</td>
+						
+						<td>
+							<a href="{% url 'updateAssignment' assignment.id  %}" class="edit" ><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+							<a href="{% url 'deleteAssignment' assignment.id  %}" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							
+						</td>
+					</tr>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					{% endfor %}
+				</tbody>
+			</table>
+			<div class="clearfix">
+				
+				<ul class="pagination">
+					<li class="page-item disabled"><a href="#">Previous</a></li>
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+	
+					<li class="page-item"><a href="#" class="page-link">Next</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>        
+</div>
+{% endif %}
