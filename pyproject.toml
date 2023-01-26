@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "django-project"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "django_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "^4.1.2"
+django-filter = "^22.1"
+setuptools = "^65.5.1"
+gunicorn = "^20.1.0"
+django-on-heroku = "^1.1.2"
+coverage = "^7.1.0"
+pytest = "^7.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
