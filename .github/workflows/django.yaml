@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env: 
-      export DJANGO_SETTINGS_MODULE: django_project.settings
+      DJANGO_SETTINGS_MODULE: django_project.settings
     strategy:
       max-parallel: 2
       matrix:
