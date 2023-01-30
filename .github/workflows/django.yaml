@@ -3,7 +3,7 @@ name: Django Github Action
 on: push
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     env: 
       export DJANGO_SETTINGS_MODULE: django_project.settings
