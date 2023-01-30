@@ -27,10 +27,12 @@ class Test_views(TestCase):
     def setUp(self) -> None:
         self.client = Client()
         self.list_students=reverse('RetreiveStudents')  
+        #self.grade_student=reverse('StudentGrades', args=[])  
     def test_student_list_GET(self):
         response = self.client.get(self.list_students)
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'student_project/RetreiveStudents.html')  
+
     
 
 
