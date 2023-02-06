@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Assignment',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30)),
                 ('difficulty', models.FloatField()),
             ],
@@ -23,7 +24,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Student',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=30)),
                 ('last_name', models.CharField(max_length=30)),
                 ('town', models.CharField(max_length=30)),
@@ -33,7 +35,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Course',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True,
+                 serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=30, null=True)),
                 ('students', models.ManyToManyField(to='app.student')),
             ],
@@ -41,7 +44,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AssignmentResult',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, 
+                serialize=False, verbose_name='ID')),
                 ('grade', models.FloatField()),
                 ('assignment', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.assignment')),
                 ('id_student', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.student')),
